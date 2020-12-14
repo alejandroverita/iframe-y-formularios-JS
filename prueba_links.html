@@ -3,10 +3,23 @@
 <head>
 <meta charset="utf-8">
 <title>Documento sin título</title>
-<script src="Jquery/jquery-1.6.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 
+$(document).ready(function(e) {
+  //para que empiece escondiendo form
+  $("#miformulario").hide();
 
+  //aparezca haciendo click con efecto fadeIn
+  $("#mivinculo").click(function(e){
+    $("#miformulario").fadeIn(500);
+
+    //prevenir comportamiento por defecto cualquiera de las siguient
+    e.preventDefault();
+
+    //return false;
+  });
+});
 	
 	
 
