@@ -37,7 +37,15 @@ h1{
 	});
 
   function comprobar_datos(){
-//objeto Jquery que accede a todos los cuadros de texto del form
+
+    if($("#masculino").prop("checked")){
+      alert("Eres machito");
+    }
+    else {
+      alert ("eres hembrita");
+    }
+
+/*objeto Jquery que accede a todos los cuadros de texto del form
     $(":text").each(function(){
       //each funciona como bucle recorriendo cada elemento text
       //this lanza la alerta de ESE elemento que ha leido a cada vuelta de bucle
