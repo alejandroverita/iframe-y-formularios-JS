@@ -3,9 +3,24 @@
 <head>
 <meta charset="utf-8">
 <title>Documento sin título</title>
-<script src="Jquery/jquery-1.6.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+$(document).ready(function(e){
 
+    //almacenamos en varibale las propiedades metodo OPEN
+    var propVent="width=500, height=200"
+
+    //enlace, identificativo interno, propiedades
+    var miVentana=open("https://virtualalestore.com", AleStore, propVent);
+
+    //pa que este a la escucha el boton cerrar
+    $("#botonCerrar").click(function(e){
+
+        e.preventDefault();
+
+        miVentana.close();
+    })
+})
 	
 	
 
@@ -13,7 +28,7 @@
 </head>
 
 <body>
-<a href="http://www.pildorasinformaticas.es">Ir a Píldoras</a>
+<a href="http://www.pildorasinformaticas.es">Ir a AleStore</a>
 <br><br><br>
 <a href="" id="botonCerrar">Cerrar</a>
 </body>
