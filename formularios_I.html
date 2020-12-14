@@ -37,10 +37,25 @@ h1{
 	});
 
   function comprobar_datos(){
+//objeto Jquery que accede a todos los cuadros de texto del form
+    $(":text").each(function(){
+      //each funciona como bucle recorriendo cada elemento text
+      //this lanza la alerta de ESE elemento que ha leido a cada vuelta de bucle
+      var vuelta=$(this).val();
 
-    //rescata los datos que se haya colocado en el cuadro de texto
-    //del formulario nombre
+      alert("En este cuadro dice " + vuelta);
+    })
+
+    /*rescata los datos que se haya colocado en el cuadro de texto
+    del formulario nombre
     alert($("#nombre").val());
+
+    //almacenando en variable lo que haya en el cuadro de texto
+    var minombre=$("#nombre").val();
+
+    alert("El nombre del cuadro de texto es " + minombre)*/
+
+
   }
 
 </script>
