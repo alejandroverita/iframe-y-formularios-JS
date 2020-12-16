@@ -30,20 +30,66 @@ h1{
 
 <script>
 
-	$(document).ready(function(e) {
-		
-    $("#comprobar").click(comprobar_datos);
+$(document).ready(function() {
 
-	});
+  $("#nombre").focus(function(){
 
-  function comprobar_datos(){
+    var campo_nombre=$(this);
+    //compara si el valor en el campo nombre es igual al valor obligatorio nombre
+    if(campo_nombre.val()==campo_nombre.attr("value")){
 
-    if($("#masculino").prop("checked")){
-      alert("Eres machito");
+      campo_nombre.val("");
+
     }
-    else {
-      alert ("eres hembrita");
+
+  });
+
+  $("#form_datos").submit(function(){
+
+    if($("#nombre").val()==" " || $("#nombre").val=="Obligatorio nombre"){
+
+      alert("Por favor completa tu nombre");
+      
+      $("#nombre").focus();
+
+      return false;
     }
+  }); //fin function obligatorio nombre
+
+  //se desencadena al perder el foco
+  $("#edad").blur(function(){
+    var edad_usuario=$(this).val();
+
+    if (isNaN(edad_usuario)){
+      alert ("Introduce un numero");
+
+      //devuelve el foco al campo edad
+      $(this).focus();
+
+      //resetea el valor por defecto y limpia 
+      $(this).val("");
+    }
+  });
+  
+
+  //almacena valores del checkbox en un array
+  var miArray= new Array();
+
+  var i=0;
+
+  $(":checkbox").click(function(){
+
+    miArray[i]=$(this).val();
+    //en cada vuelta this muestra el valor contenido en su array
+    //alert ("Posicion " + i + " " + miArray[i]);
+
+    $("#las_aficiones").append(miArray[i]). append("<br/>"); // agrega un elemento al contenedor
+
+    i++;
+
+  });
+
+}); //fin function ready
 
 /*objeto Jquery que accede a todos los cuadros de texto del form
     $(":text").each(function(){
@@ -62,9 +108,6 @@ h1{
     var minombre=$("#nombre").val();
 
     alert("El nombre del cuadro de texto es " + minombre)*/
-
-
-  }
 
 </script>
 </head>
@@ -149,6 +192,6 @@ h1{
   </table>
   </form>
 </div>
-
+<div id="las_aficiones"></div>
 </body>
 </html>
