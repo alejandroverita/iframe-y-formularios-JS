@@ -46,17 +46,43 @@ h1{
       rules:{
         nombre:"required",
         apellid:"required",
+
         f_nacimiento:{
           //mas de dos reglas de validacion
           date:true,
           required:true
         },
 
-        edad:"number",
+        edad:{
+          number:true,
+          range:[1,105]
+        },
         mail:"email",
         p_web:"url"
-        
-      } //fin de reglas de validacion
+
+      }, //fin de reglas de validacion
+
+      //mensajes personalizados de validacion
+      messages:{
+        nombre:"Obligatorio",
+        apellido:"Obligatorio",
+
+        f_nacimiento:{
+          date: "Formato no valido",
+          required:"Obligatorio"
+        },
+
+        edad:{
+          number:"Introduce un formato valido",
+          range: "Una edad entre 1 y 105 años"
+        },
+
+        mail:"E-mail incorrecto",
+
+        p_web:"http://..."
+
+      }//fin de mensajes 
+
 
     }); //fin de funcion validate
 			
