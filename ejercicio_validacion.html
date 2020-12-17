@@ -99,6 +99,15 @@ form .indent, #submit {
   margin-left: 0;
 }
 
+#form_registro label.error{
+	font-size:0.8em;
+	color:#F00;
+	font-weight:bold;
+	display:block;
+	margin-left:215px;
+}
+
+
 
 
 </style>
@@ -136,8 +145,28 @@ $(document).ready(function() {
 			e_mail:{
 				required:"Completa el campo pofavo'",
 				email: "Formato incorrecto men"
+			},
+
+			password:{
+				required: "Obligatorio man",
+				rangelength: "Entre 8 y 16 caracteres"
+			},
+
+			confirma:{
+				equalTo:"Debe ser igual a la contraseña"
 			}
-		}//fin mensajes
+		},//fin mensajes
+
+		errorPlacement: function(error, element){
+			//si elemento es una radio button o casilla checkbox
+			if(element.is(":radio")|| element.is(":checkbox")) {
+				//entonces muestra error padre a continuacion del elemento
+				error.appendTo(element.parent());
+			}
+			else {
+				error.insertAfter(element);
+			}
+		} //fin Error placement
 
 	});//fin funcion validate
 	
@@ -171,7 +200,7 @@ $(document).ready(function() {
 				<input name="confirma" type="password" id="confirma">
 			</div>
 			<div><span class="label">aficiones</span>
-				<input name="hobby" type="checkbox" id="comer" value="comer" >
+				<input name="hobby" type="checkbox" id="comer" value="comer" class="required" title="Selecciona una aficion OE">
 				Comer
 				<input name="hobby" type="checkbox" id="Beber" value="Beber">
 				<label for="Beber">Beber</label>
@@ -183,8 +212,8 @@ $(document).ready(function() {
 			</div>
 			<div>
 				<label for="planeta" class="label">PlanetA </label>
-				<select name="planeta" id="planeta" >
-					<option value="">--Por favor, selecciona--</option>
+				<select name="planeta" id="planeta" class="required" title="Selecciona un planeta OE >
+					<option value=">--Por favor, selecciona--</option>
 					<option value="tierra">Tierra</option>
 					<option value="marte">Marte</option>
 					<option value="ganimedes">Ganímedes</option>
