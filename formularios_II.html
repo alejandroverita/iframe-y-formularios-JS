@@ -25,7 +25,7 @@ h1{
 }
 
 #tarjeta, #fecha_tarjeta, #email {
-  #F93;
+  background-color: #F93;
 }
 
 
@@ -40,20 +40,20 @@ $(document).ready(function() {
 		
 	$("#paypal").click(function(){
     //la casilla email se activa y se coloca el foco al hacer click en paypal
-    $("#email").attr("disabled", false).focus();
+    $("#email").attr("disabled", false).focus().css("background-color", "#FFF");
 
-    $("#tarjeta").attr("disabled", true);
+    $("#tarjeta").attr("disabled", true).css("background-color", "F93");
     
-    $("#fecha_tarjeta").attr("disabled", true);
+    $("#fecha_tarjeta").attr("disabled", true).css("background-color", "F93");
   });
 
   $("#visa, #master").click(function(){
 
-    $("#tarjeta").attr("disabled", false).focus();
+    $("#tarjeta").attr("disabled", false).focus().css("background-color", "#FFF");
 
-    $("#fecha_tarjeta").attr("disabled", false);
+    $("#fecha_tarjeta").attr("disabled", false).css("background-color", "#FFF");
 
-    $("#email").attr("disabled", true);
+    $("#email").attr("disabled", true).css("background-color", "#F93");
   });
 
  /* $("#master").click(function(){
