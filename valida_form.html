@@ -40,7 +40,25 @@ h1{
 
 	$(document).ready(function() {
 		
-		$("#form_datos").validate();
+		$("#form_datos").validate({
+
+      //creando sentencia de reglas
+      rules:{
+        nombre:"required",
+        apellid:"required",
+        f_nacimiento:{
+          //mas de dos reglas de validacion
+          date:true,
+          required:true
+        },
+
+        edad:"number",
+        mail:"email",
+        p_web:"url"
+        
+      } //fin de reglas de validacion
+
+    }); //fin de funcion validate
 			
 	
 	
@@ -60,20 +78,20 @@ h1{
     <tr>
       <td>Nombre:</td>
       <td><label for="nombre"></label>
-        <input type="text" name="nombre" id="nombre" class= "required" title="Completa tu nombre"></td>
+        <input type="text" name="nombre" id="nombre"></td>
     </tr>
     <tr>
       <td>Apellidos:</td>
-      <td><input type="text" name="apellido" id="apellido" class= "required" title="Completa tu apellido" ></td>
+      <td><input type="text" name="apellido" id="apellido"  ></td>
     </tr>
     <tr>
       <td>Fecha Nacimiento</td>
       <td><label for="f_nacimiento"></label>
-        <input type="text" name="f_nacimiento" id="f_nacimiento" class= "date" title="MM//DD/AAAA" ></td>
+        <input type="text" name="f_nacimiento" id="f_nacimiento" ></td>
     </tr>
     <tr>
       <td>Edad:</td>
-      <td><input name="edad" type="edad" id="edad" size="4" class= "number" title="Coloca tu edad en numeros"></td>
+      <td><input name="edad" type="edad" id="edad" size="4" ></td>
     </tr>
     <tr>
       <td>Código Postal:</td>
@@ -83,12 +101,12 @@ h1{
     <tr>
       <td>Email:</td>
       <td><label for="mail"></label>
-        <input type="text" name="mail" id="mail" class="email"></td>
+        <input type="text" name="mail" id="mail" ></td>
     </tr>
     <tr>
       <td>Página web:</td>
       <td><label for="p_web"></label>
-        <input type="text" name="p_web" id="p_web" class="url"></td>
+        <input type="text" name="p_web" id="p_web"></td>
     </tr>
     
      
